@@ -16,7 +16,7 @@ Window {
 		anchors.fill: parent
 		currentIndex: 0
 
-		StartScreen {
+        StartScreenForm {
 
 		}
 	}
