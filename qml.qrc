@@ -7,5 +7,7 @@
         <file>Images/Task Knight logo@2x.png</file>
         <file>Images/templar.svg</file>
         <file>Images/sword.svg</file>
+        <file>SignInScreen.qml</file>
+        <file>SignInScreenForm.ui.qml</file>
     </qresource>
 </RCC>

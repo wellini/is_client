@@ -19,7 +19,35 @@ Window {
 		currentIndex: 0
 
         StartScreenForm {
+			signInButton {
+				onClicked: {
+					swipeView.addItem(signIn.createObject(swipeView))
+					swipeView.incrementCurrentIndex()
+				}
+			}
+		}
 
+		Component {
+			id: signIn
+			SignInScreen {
+				mouseArea {
+					onClicked: {
+						swipeView.decrementCurrentIndex()
+						destructionTimer.start()
+					}
+				}
+			}
+		}
+	}
+
+	Timer {
+		id: destructionTimer
+		interval: 300
+		repeat: false
+		triggeredOnStart: false
+
+		onTriggered: {
+			swipeView.removeItem(swipeView.childAt(1))
 		}
 	}
 }
