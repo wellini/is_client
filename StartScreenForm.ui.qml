@@ -43,12 +43,13 @@ Item {
             Layout.topMargin: 100
             Layout.rightMargin: 20
             Layout.leftMargin: 20
-            Layout.fillHeight: false
+            Layout.fillHeight: true
 
             Image {
                 id: shieldLeft
                 x: 0
                 y: 0
+                Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 fillMode: Image.PreserveAspectFit
@@ -105,6 +106,7 @@ Item {
             Column {
                 id: buttons
                 height: 300
+                scale: 1 * (startScreen.width / 1920 + startScreen.height / 1080) / 2
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
@@ -121,12 +123,12 @@ Item {
                         id: signInText
                         color: "#ff8705"
                         text: qsTr("Sign In")
+                        font.pointSize: 38
                         font.bold: true
                         font.family: "Verdana"
                         verticalAlignment: Text.AlignVCenter
                         horizontalAlignment: Text.AlignHCenter
                         anchors.fill: parent
-                        font.pixelSize: 50
 
                         MouseArea {
                             id: signInButton
@@ -148,12 +150,12 @@ Item {
                     Text {
                         id: signUpText
                         color: "#ffffff"
-                        text: qsTr("Sign In")
+                        text: qsTr("Sign Up")
+                        font.pointSize: 38
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.verticalCenter: parent.verticalCenter
                         horizontalAlignment: Text.AlignHCenter
                         verticalAlignment: Text.AlignVCenter
-                        font.pixelSize: 50
                         font.family: "Verdana"
                         font.bold: true
 
@@ -169,20 +171,20 @@ Item {
 
         ColumnLayout {
             id: columnRight
-            width: 100
-            height: 100
             Layout.bottomMargin: 100
             Layout.topMargin: 100
             Layout.fillWidth: true
             Layout.rightMargin: 20
             Layout.leftMargin: 20
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            Layout.fillHeight: false
+            Layout.fillHeight: true
 
             Image {
                 id: shieldRight
                 x: 0
                 y: 0
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+                Layout.fillHeight: true
                 Layout.fillWidth: true
                 fillMode: Image.PreserveAspectFit
                 source: "Images/shield.svg"

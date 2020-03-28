@@ -5,7 +5,9 @@ import QtQuick.Controls 2.14
 Window {
 	id: window
 	visible: true
-	visibility: "Maximized"
+    width: 1280
+    height: 720
+//	visibility: "Maximized"
 
 	title: qsTr("Hello World")
 
