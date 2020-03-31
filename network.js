@@ -7,9 +7,11 @@ function httpGet() {
             console.log("headers recieved.")
         } else if (xhr.readyState === XMLHttpRequest.DONE) {
             console.log("done.")
+			var response = JSON.parse(xhr.responseText.toString())
+			console.log(JSON.stringify(response, null, 2))
         }
     }
 
-    xhr.open("GET", url + "/api/1.0/auth")
+	xhr.open("GET", url + "/api/1.0/auth", true)
     xhr.send()
 }
