@@ -9,5 +9,6 @@
         <file>Images/sword.svg</file>
         <file>SignInScreen.qml</file>
         <file>SignInScreenForm.ui.qml</file>
+        <file>network.js</file>
     </qresource>
 </RCC>
