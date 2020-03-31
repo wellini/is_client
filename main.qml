@@ -21,33 +21,33 @@ Window {
         StartScreenForm {
 			signInButton {
 				onClicked: {
-					swipeView.addItem(signIn.createObject(swipeView))
+                    swipeView.addItem(signIn.createObject(swipeView))
 					swipeView.incrementCurrentIndex()
 				}
 			}
-		}
+        }
 
-		Component {
-			id: signIn
-			SignInScreen {
-				mouseArea {
-					onClicked: {
-						swipeView.decrementCurrentIndex()
-						destructionTimer.start()
-					}
-				}
-			}
-		}
-	}
+        Component {
+            id: signIn
+            SignInScreen {
+                mouseArea {
+                    onClicked: {
+                        swipeView.setCurrentIndex(0)
+                        destructionTimer.start()
+                    }
+                }
+            }
+        }
+    }
 
-	Timer {
-		id: destructionTimer
-		interval: 300
-		repeat: false
-		triggeredOnStart: false
+    Timer {
+        id: destructionTimer
+        interval: 300
+        repeat: false
+        triggeredOnStart: false
 
-		onTriggered: {
-			swipeView.removeItem(swipeView.childAt(1))
-		}
-	}
+        onTriggered: {
+            swipeView.removeItem(swipeView.itemAt(1));
+        }
+    }
 }
