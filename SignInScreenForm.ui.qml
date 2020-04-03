@@ -13,6 +13,7 @@ Item {
 	property alias mouseArea: mouseArea
 	property alias emailTextEdit: emailTextEdit
 	property alias passwordTextEdit: passwordTextEdit
+	property alias forgotPasswordButton: forgotPasswordButton
 
 	Rectangle {
 		id: background
@@ -26,6 +27,8 @@ Item {
 
 		Column {
 			id: column
+			spacing: 20
+			scale: (signInScreen.width / 1920 + signInScreen.height / 1080) / 2
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.verticalCenter: parent.verticalCenter
 
@@ -33,6 +36,7 @@ Item {
 				id: emailText
 				color: "#ffffff"
 				text: qsTr("E-Mail")
+				leftPadding: 20
 				font.bold: true
 				font.family: "Verdana"
 				font.pixelSize: 50
@@ -61,6 +65,7 @@ Item {
 				id: passwordText
 				color: "#ffffff"
 				text: qsTr("Password")
+				leftPadding: 20
 				font.bold: true
 				font.family: "Verdana"
 				font.pixelSize: 50
@@ -83,6 +88,27 @@ Item {
 					font.pixelSize: rectNativeTextSizePixels
 				}
 			}
+
+			Text {
+				id: forgotPasswordText
+				color: "#fde0a0"
+				text: qsTr("Forgot password?")
+				anchors.horizontalCenter: parent.horizontalCenter
+				leftPadding: 20
+				font.family: "Verdana"
+				font.pixelSize: 30
+
+				MouseArea {
+					id: forgotPasswordButton
+					anchors.fill: parent
+				}
+			}
+
+			ButtonRect {
+				id: buttonRect
+				text: "Sign In"
+				anchors.horizontalCenter: parent.horizontalCenter
+			}
 		}
 	}
 }
@@ -90,7 +116,7 @@ Item {
 /*##^##
 Designer {
 	D{i:0;autoSize:true;height:1080;width:1920}D{i:6;anchors_height:20;anchors_width:80}
-D{i:9;anchors_height:20;anchors_width:80}
+D{i:9;anchors_height:20;anchors_width:80}D{i:11;anchors_height:100;anchors_width:100}
 }
 ##^##*/
 
