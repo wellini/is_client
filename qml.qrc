@@ -10,5 +10,7 @@
         <file>SignInScreen.qml</file>
         <file>SignInScreenForm.ui.qml</file>
         <file>network.js</file>
+        <file>ButtonRect.qml</file>
+        <file>ButtonRectForm.ui.qml</file>
     </qresource>
 </RCC>

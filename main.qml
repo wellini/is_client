@@ -22,12 +22,11 @@ Window {
 
         StartScreenForm {
 			signInButton {
-				onClicked: {
-                    swipeView.addItem(signIn.createObject(swipeView))
-					swipeView.incrementCurrentIndex()
-
-                    Network.httpGet()
-
+				buttonMouseArea {
+					onClicked: {
+						swipeView.addItem(signIn.createObject(swipeView))
+						swipeView.incrementCurrentIndex()
+					}
 				}
 			}
         }

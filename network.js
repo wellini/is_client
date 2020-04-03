@@ -1,17 +1,45 @@
-function httpGet() {
-    var xhr = new XMLHttpRequest()
-    let url = "https://virtserver.swaggerhub.com/wellini/IST/1.0.0"
+var response = null
+var xhr = new XMLHttpRequest()
+const url = "https://virtserver.swaggerhub.com/wellini/IST/1.0.0"
+var suffix = ""
 
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.HEADERS_RECIEVED) {
-            console.log("headers recieved.")
-        } else if (xhr.readyState === XMLHttpRequest.DONE) {
-            console.log("done.")
-			var response = JSON.parse(xhr.responseText.toString())
-			console.log(JSON.stringify(response, null, 2))
-        }
-    }
 
-	xhr.open("GET", url + "/api/1.0/auth", true)
-    xhr.send()
+function getAuth() {
+	suffix = "/api/1.0/auth"
+
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.HEADERS_RECIEVED) {
+			console.log("headers recieved.")
+		} else if (xhr.readyState === XMLHttpRequest.DONE) {
+			response = JSON.parse(xhr.responseText.toString())
+		}
+	}
+
+	xhr.open("GET", url + suffix, true)
+	xhr.send()
+	return response
+}
+
+function postLogin(login, password) {
+
+}
+
+function postRegistration(username, login, password) {
+
+}
+
+function postRegistrationConfirm(token) {
+
+}
+
+function getLogout() {
+
+}
+
+function postChangePassword(newPassword) {
+
+}
+
+function postChangePasswordConfirm(token) {
+
 }

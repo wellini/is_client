@@ -10,10 +10,10 @@ Item {
 	property alias startScreen: startScreen
 	property alias rowLayout: rowLayout
 	property alias aboutButton: aboutButton
-	property alias signUpButton: signUpButton
-	property alias signInButton: signInButton
 	property alias aboutRect: aboutRect
 	property alias aboutText: aboutText
+	property alias signInButton: signInButton
+	property alias signUpButton: signUpButton
 
 	Rectangle {
 		id: background
@@ -115,59 +115,17 @@ Item {
 				Layout.fillWidth: true
 				Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
 
-				Rectangle {
-					id: signInRect
-					width: 238
-					height: 101
-					color: "#ffffff"
-					radius: height * 0.5
+				ButtonRect {
+					id: signInButton
+					text: "Sign In"
 					anchors.horizontalCenter: parent.horizontalCenter
-
-					Text {
-						id: signInText
-						color: orangeColorRGB
-						text: qsTr("Sign In")
-						font.pointSize: 38
-						font.bold: true
-						font.family: "Verdana"
-						verticalAlignment: Text.AlignVCenter
-						horizontalAlignment: Text.AlignHCenter
-						anchors.fill: parent
-
-						MouseArea {
-							id: signInButton
-							anchors.bottomMargin: 6
-							anchors.topMargin: 6
-							anchors.rightMargin: 10
-							anchors.leftMargin: 10
-							anchors.fill: parent
-						}
-					}
 				}
 
-				Rectangle {
-					id: signUpRect
-					width: 238
-					height: 101
-					color: orangeColorRGB
-					radius: height * 0.5
-					Text {
-						id: signUpText
-						color: "#ffffff"
-						text: qsTr("Sign Up")
-						font.pointSize: 38
-						anchors.horizontalCenter: parent.horizontalCenter
-						anchors.verticalCenter: parent.verticalCenter
-						horizontalAlignment: Text.AlignHCenter
-						verticalAlignment: Text.AlignVCenter
-						font.family: "Verdana"
-						font.bold: true
-
-						MouseArea {
-							id: signUpButton
-							anchors.fill: parent
-						}
-					}
+				ButtonRect {
+					id: signUpButton
+					text: "Sign Up"
+					textColor: "#ffffff"
+					rectColor: "#FF8705"
 					anchors.horizontalCenter: parent.horizontalCenter
 				}
 			}
@@ -226,6 +184,7 @@ Item {
 			MouseArea {
 				id: aboutButton
 				anchors.fill: parent
+				cursorShape: Qt.PointingHandCursor
 			}
 		}
 	}
@@ -234,7 +193,7 @@ Item {
 /*##^##
 Designer {
 	D{i:0;autoSize:true;height:1080;width:1920}D{i:1;anchors_height:200;anchors_width:200}
-D{i:20;anchors_height:100;anchors_width:100}D{i:18;anchors_height:83}
+D{i:16;anchors_height:83;anchors_width:100}D{i:14;anchors_height:83}
 }
 ##^##*/
 
