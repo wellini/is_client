@@ -16,15 +16,24 @@ Window {
 	SwipeView {
 		id: swipeView
 		visible: true
-		interactive: true
+		interactive: false
 		anchors.fill: parent
 		currentIndex: 0
 
-        StartScreenForm {
+		StartScreen {
 			signInButton {
 				buttonMouseArea {
 					onClicked: {
 						swipeView.addItem(signIn.createObject(swipeView))
+						swipeView.incrementCurrentIndex()
+					}
+				}
+			}
+
+			signUpButton {
+				buttonMouseArea {
+					onClicked: {
+						swipeView.addItem(signUp.createObject(swipeView))
 						swipeView.incrementCurrentIndex()
 					}
 				}
@@ -42,6 +51,13 @@ Window {
                 }
             }
         }
+
+		Component {
+			id: signUp
+			SignUpScreen {
+
+			}
+		}
     }
 
     Timer {

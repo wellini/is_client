@@ -1,11 +1,9 @@
-var response = null
-var xhr = new XMLHttpRequest()
 const url = "https://virtserver.swaggerhub.com/wellini/IST/1.0.0"
-var suffix = ""
 
 
 function getAuth() {
-	suffix = "/api/1.0/auth"
+	var xhr = new XMLHttpRequest()
+	var suffix = "/api/1.0/auth"
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === XMLHttpRequest.HEADERS_RECIEVED) {
