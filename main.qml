@@ -49,13 +49,20 @@ Window {
                         destructionTimer.start()
                     }
                 }
+
+				signInButton {
+					buttonMouseArea {
+						onClicked: {
+							Network.postLogin()
+						}
+					}
+				}
             }
         }
 
 		Component {
 			id: signUp
 			SignUpScreen {
-
 			}
 		}
     }

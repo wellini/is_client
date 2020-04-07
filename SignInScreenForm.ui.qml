@@ -14,6 +14,7 @@ Item {
 	property alias emailTextEdit: emailTextEdit
 	property alias passwordTextEdit: passwordTextEdit
 	property alias forgotPasswordButton: forgotPasswordButton
+	property alias signInButton: signInButton
 
 	Rectangle {
 		id: background
@@ -105,7 +106,7 @@ Item {
 			}
 
 			ButtonRect {
-				id: buttonRect
+				id: signInButton
 				text: "Sign In"
 				anchors.horizontalCenter: parent.horizontalCenter
 			}
