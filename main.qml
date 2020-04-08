@@ -22,7 +22,7 @@ Window {
 
 		StartScreen {
 			signInButton {
-				buttonMouseArea {
+                mouseArea {
 					onClicked: {
 						swipeView.addItem(signIn.createObject(swipeView))
 						swipeView.incrementCurrentIndex()
@@ -31,7 +31,7 @@ Window {
 			}
 
 			signUpButton {
-				buttonMouseArea {
+                mouseArea {
 					onClicked: {
 						swipeView.addItem(signUp.createObject(swipeView))
 						swipeView.incrementCurrentIndex()
@@ -51,7 +51,7 @@ Window {
                 }
 
 				signInButton {
-					buttonMouseArea {
+                    mouseArea {
 						onClicked: {
 							Network.postLogin()
 						}

@@ -1,7 +1,8 @@
 import QtQuick 2.14
 
 ButtonRectForm {
-	buttonMouseArea {
-		cursorShape: Qt.PointingHandCursor
-	}
+    rectColor: {
+        if (mouseArea.containsMouse) rectHoverColor
+        else rectNormalColor
+    }
 }
