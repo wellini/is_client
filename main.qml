@@ -53,7 +53,10 @@ Window {
 				signInButton {
                     mouseArea {
 						onClicked: {
-							Network.postLogin()
+							var email = emailTextEdit.text
+							var password = passwordTextEdit.text
+
+							Network.postLogin(email, password)
 						}
 					}
 				}

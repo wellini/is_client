@@ -23,6 +23,7 @@ function postLogin(login, password) {
 	var xhr = new XMLHttpRequest()
 	var suffix = "/api/1.0/login"
 	let response = ""
+	let params = "login=" + login + "&password=" + password
 
 	xhr.onreadystatechange = function() {
 		if (xhr.readyState === XMLHttpRequest.HEADERS_RECIEVED) {
@@ -34,7 +35,7 @@ function postLogin(login, password) {
 	}
 
 	xhr.open("POST", url + suffix, true)
-	xhr.send()
+	xhr.send(params)
 }
 
 function postRegistration(username, login, password) {
