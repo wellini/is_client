@@ -11,7 +11,7 @@ Rectangle {
     border.color: "#ffffff"
     border.width: 5
 
-    // MouseArea for handilg mouse events
+	// MouseArea for handling mouse events
     property alias mouseArea: mouseArea
     // Rectangle's border's width and color
     property alias rectBorderWidth: rect.border.width

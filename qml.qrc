@@ -14,5 +14,7 @@
         <file>ButtonRectForm.ui.qml</file>
         <file>SignUpScreen.qml</file>
         <file>SignUpScreenForm.ui.qml</file>
+        <file>AboutScreen.qml</file>
+        <file>AboutScreenForm.ui.qml</file>
     </qresource>
 </RCC>

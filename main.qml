@@ -7,11 +7,12 @@ import "network.js" as Network
 Window {
 	id: window
 	visible: true
-    width: 1280
-    height: 720
-//	visibility: "Maximized"
-
-	title: qsTr("Hello World")
+	width: 1920
+	height: 1080
+	minimumWidth: 1280
+	minimumHeight: 720
+	//	visibility: "Maximized"
+	title: qsTr("Task Knight")
 
 	SwipeView {
 		id: swipeView
@@ -20,9 +21,11 @@ Window {
 		anchors.fill: parent
 		currentIndex: 0
 
+		// Starting screen
 		StartScreen {
+			// Sign in button (login)
 			signInButton {
-                mouseArea {
+				mouseArea {
 					onClicked: {
 						swipeView.addItem(signIn.createObject(swipeView))
 						swipeView.incrementCurrentIndex()
@@ -30,54 +33,64 @@ Window {
 				}
 			}
 
+			// Sign up button (registration)
 			signUpButton {
-                mouseArea {
+				mouseArea {
 					onClicked: {
 						swipeView.addItem(signUp.createObject(swipeView))
 						swipeView.incrementCurrentIndex()
 					}
 				}
+				rectBorderColor: "#ff8705"
 			}
-        }
 
-        Component {
-            id: signIn
-            SignInScreen {
-                mouseArea {
-                    onClicked: {
-                        swipeView.setCurrentIndex(0)
-                        destructionTimer.start()
-                    }
-                }
+			// "What is task knight?" button
+			//  It's not a ButtonRect, it's a MouseArea
+			aboutButton.onClicked:  {
+				swipeView.addItem(about.createObject(swipeView))
+				swipeView.incrementCurrentIndex()
+			}
+		}
 
-				signInButton {
-                    mouseArea {
-						onClicked: {
-							var email = emailTextEdit.text
-							var password = passwordTextEdit.text
-
-							Network.postLogin(email, password)
-						}
-					}
+		Component {
+			id: signIn
+			SignInScreen {
+				mouseArea.onClicked: {
+					swipeView.setCurrentIndex(0)
+					destructionTimer.start()
 				}
-            }
-        }
+			}
+		}
 
 		Component {
 			id: signUp
 			SignUpScreen {
+				mouseArea.onClicked: {
+					swipeView.setCurrentIndex(0)
+					destructionTimer.start()
+				}
 			}
 		}
-    }
 
-    Timer {
-        id: destructionTimer
-        interval: 300
-        repeat: false
-        triggeredOnStart: false
+		Component {
+			id: about
+			AboutScreen {
+				mouseArea.onClicked: {
+					swipeView.setCurrentIndex(0)
+					destructionTimer.start()
+				}
+			}
+		}
+	}
 
-        onTriggered: {
-            swipeView.removeItem(swipeView.itemAt(1));
-        }
-    }
+	Timer {
+		id: destructionTimer
+		interval: 300
+		repeat: false
+		triggeredOnStart: false
+
+		onTriggered: {
+			swipeView.removeItem(swipeView.itemAt(1));
+		}
+	}
 }

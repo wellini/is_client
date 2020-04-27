@@ -4,11 +4,20 @@ import QtQuick.Layouts 1.14
 Item {
 	id: signUpScreen
 	property alias createButton: createButton
+	property alias fullNameTextEdit: fullNameTextEdit
+	property alias emailTextEdit: emailTextEdit
+	property alias passwordTextEdit: passwordTextEdit
+	property alias mouseArea: mouseArea
 
 	Rectangle {
 		id: background
 		color: "#ff8705"
 		anchors.fill: parent
+
+		MouseArea {
+			id: mouseArea
+			anchors.fill: parent
+		}
 
 		ColumnLayout {
 			id: topLevelColumnLayout
@@ -16,6 +25,7 @@ Item {
 
 			ColumnLayout {
 				id: upperHeader
+				Layout.fillHeight: true
 				Layout.fillWidth: true
 				Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
 				spacing: 0
@@ -62,8 +72,8 @@ Item {
 					width: 100
 					height: 100
 					scale: 1
-					Layout.fillWidth: false
-					Layout.fillHeight: false
+					Layout.fillWidth: true
+					Layout.fillHeight: true
 
 					Text {
 						id: fullNameText
@@ -83,6 +93,13 @@ Item {
 						color: "#ffffff"
 						radius: height / 2
 						Layout.alignment: Qt.AlignLeft | Qt.AlignTop
+
+						TextEdit {
+							id: fullNameTextEdit
+							text: qsTr("Text Edit")
+							anchors.fill: parent
+							font.pixelSize: 50
+						}
 					}
 
 					Text {
@@ -101,6 +118,13 @@ Item {
 						height: 72
 						color: "#ffffff"
 						radius: height / 2
+
+						TextEdit {
+							id: emailTextEdit
+							text: qsTr("Text Edit")
+							font.pixelSize: 50
+							anchors.fill: parent
+						}
 					}
 
 					Text {
@@ -121,6 +145,13 @@ Item {
 						color: "#ffffff"
 						radius: height / 2
 						Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+
+						TextEdit {
+							id: passwordTextEdit
+							text: qsTr("Text Edit")
+							font.pixelSize: 50
+							anchors.fill: parent
+						}
 					}
 
 					ButtonRect {
@@ -153,6 +184,8 @@ Item {
 /*##^##
 Designer {
 	D{i:0;autoSize:true;height:1080;width:1920}D{i:2;anchors_height:100;anchors_width:100}
+D{i:11;anchors_height:20;anchors_width:80}D{i:14;anchors_height:20;anchors_width:80}
+D{i:17;anchors_height:20;anchors_width:80}D{i:3;anchors_height:100;anchors_width:100}
 }
 ##^##*/
 
