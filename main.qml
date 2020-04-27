@@ -7,15 +7,15 @@ import "network.js" as Network
 Window {
 	id: window
 	visible: true
-	width: 1920
-	height: 1080
+//	width: 1920
+//	height: 1080
 	minimumWidth: 1280
 	minimumHeight: 720
-	//	visibility: "Maximized"
 	title: qsTr("Task Knight")
 
 	SwipeView {
 		id: swipeView
+		focus: true
 		visible: true
 		interactive: false
 		anchors.fill: parent
@@ -52,6 +52,7 @@ Window {
 			}
 		}
 
+		// Sign In screen (login)
 		Component {
 			id: signIn
 			SignInScreen {
@@ -59,9 +60,15 @@ Window {
 					swipeView.setCurrentIndex(0)
 					destructionTimer.start()
 				}
+
+				// Login proccess
+				signInButton.mouseArea.onClicked: {
+					Network.postLogin(emailTextEdit.text, passwordTextEdit.text)
+				}
 			}
 		}
 
+		// Sign Up screen (registration)
 		Component {
 			id: signUp
 			SignUpScreen {
@@ -72,6 +79,7 @@ Window {
 			}
 		}
 
+		// "What is task knight?" screen
 		Component {
 			id: about
 			AboutScreen {
@@ -81,8 +89,35 @@ Window {
 				}
 			}
 		}
+
+		Keys.onEscapePressed: {
+			Qt.quit()
+		}
+
+		// Networking functions
+		function postLogin(login, password) {
+			// email validity check
+			if (!emailIsValid(login)) {
+				console.log("Invalid email!")
+				/* TODO
+				  alert the user to the invalidity of the email
+				*/
+				return
+			}
+
+			// if email is correct:
+			let response
+
+		}
+
+		function emailIsValid(email) {
+			return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+		}
 	}
 
+	// Responsible for
+	// removing secondary screens after view is
+	// swiped back onto the starting screen
 	Timer {
 		id: destructionTimer
 		interval: 300
