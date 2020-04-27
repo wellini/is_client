@@ -50,15 +50,19 @@ Item {
 				color: "#ffffff"
 				radius: height / 2
 
-				TextEdit {
+				TextInput {
 					id: emailTextEdit
-					text: ""
+					text: "johndoe@email.provider"
+					selectionColor: color
+					selectByMouse: true
+					cursorVisible: true
+					verticalAlignment: Text.AlignVCenter
 					color: orangeColorRGB
 					font.family: "Verdana"
 					anchors.fill: parent
 					anchors.leftMargin: 10
 					anchors.rightMargin: 10
-					font.pixelSize: rectNativeTextSizePixels
+					font.pixelSize: rectNativeTextSizePixels * (emailRect.width / rectNativeWidth)
 				}
 			}
 
@@ -79,14 +83,21 @@ Item {
 				color: "#ffffff"
 				radius: height / 2
 
-				TextEdit {
+				TextInput {
 					id: passwordTextEdit
-					text: ""
+					text: "123456"
+					echoMode: TextInput.Password
+					font.family: "Verdana"
+					cursorVisible: true
+					selectByMouse: true
+					selectionColor: color
+					verticalAlignment: Text.AlignVCenter
 					color: orangeColorRGB
 					anchors.fill: parent
 					anchors.leftMargin: 10
 					anchors.rightMargin: 10
 					font.pixelSize: rectNativeTextSizePixels
+									* (emailRect.width / rectNativeWidth) / 1.3
 				}
 			}
 
@@ -116,8 +127,7 @@ Item {
 
 /*##^##
 Designer {
-	D{i:0;autoSize:true;height:1080;width:1920}D{i:6;anchors_height:20;anchors_width:80}
-D{i:9;anchors_height:20;anchors_width:80}D{i:11;anchors_height:100;anchors_width:100}
+	D{i:0;autoSize:true;height:1080;width:1920}D{i:11;anchors_height:100;anchors_width:100}
 }
 ##^##*/
 
