@@ -1,4 +1,5 @@
 import QtQuick 2.14
+import QtQuick.Layouts 1.14
 
 Item {
 	id: root
@@ -11,23 +12,38 @@ Item {
 		color: "#ff8705"
 	}
 
-	Text {
-		id: placeholderText
-		text: "placeholder for about screen"
-		font.pointSize: 30
-		color: "white"
-		anchors.centerIn: parent
+	ColumnLayout {
+		anchors.fill: parent
 
-		MouseArea {
-			id: mouseArea
-			anchors.fill: parent
+		Text {
+			id: placeholderText
+			text: "placeholder for about screen"
+			Layout.fillHeight: false
+			Layout.fillWidth: true
+			Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+			font.pointSize: 30
+			color: "white"
+
+			MouseArea {
+				id: mouseArea
+				anchors.fill: parent
+			}
+		}
+
+		TextInputRect {
+			id: textInputRect
+			Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
+			Layout.fillHeight: true
+			Layout.fillWidth: true
+			Layout.maximumHeight: height1080p
+			Layout.maximumWidth: width1080p
 		}
 	}
 }
 
 /*##^##
 Designer {
-	D{i:0;autoSize:true;height:480;width:640}
+	D{i:0;autoSize:true;height:720;width:1280}
 }
 ##^##*/
 

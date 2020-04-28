@@ -11,10 +11,10 @@ Item {
 
 	property alias background: background
 	property alias mouseArea: mouseArea
-	property alias emailTextEdit: emailTextEdit
-	property alias passwordTextEdit: passwordTextEdit
 	property alias forgotPasswordButton: forgotPasswordButton
 	property alias signInButton: signInButton
+	property alias email: emailRect.text
+	property alias password: passwordRect.text
 
 	Rectangle {
 		id: background
@@ -29,7 +29,6 @@ Item {
 		Column {
 			id: column
 			spacing: 20
-			scale: (signInScreen.width / 1920 + signInScreen.height / 1080) / 2
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.verticalCenter: parent.verticalCenter
 
@@ -43,27 +42,10 @@ Item {
 				font.pixelSize: 50
 			}
 
-			Rectangle {
+			TextInputRect {
 				id: emailRect
-				width: signInScreen.width / 1920 * rectNativeWidth
-				height: signInScreen.height / 1080 * rectNativeHeight
-				color: "#ffffff"
-				radius: height / 2
-
-				TextInput {
-					id: emailTextEdit
-					text: "johndoe@email.provider"
-					selectionColor: color
-					selectByMouse: true
-					cursorVisible: true
-					verticalAlignment: Text.AlignVCenter
-					color: orangeColorRGB
-					font.family: "Verdana"
-					anchors.fill: parent
-					anchors.leftMargin: 10
-					anchors.rightMargin: 10
-					font.pixelSize: rectNativeTextSizePixels * (emailRect.width / rectNativeWidth)
-				}
+				text: "johndoe@email.com"
+				isPassword: false
 			}
 
 			Text {
@@ -76,29 +58,9 @@ Item {
 				font.pixelSize: 50
 			}
 
-			Rectangle {
+			TextInputRect {
 				id: passwordRect
-				width: signInScreen.width / 1920 * rectNativeWidth
-				height: signInScreen.height / 1080 * rectNativeHeight
-				color: "#ffffff"
-				radius: height / 2
-
-				TextInput {
-					id: passwordTextEdit
-					text: "123456"
-					echoMode: TextInput.Password
-					font.family: "Verdana"
-					cursorVisible: true
-					selectByMouse: true
-					selectionColor: color
-					verticalAlignment: Text.AlignVCenter
-					color: orangeColorRGB
-					anchors.fill: parent
-					anchors.leftMargin: 10
-					anchors.rightMargin: 10
-					font.pixelSize: rectNativeTextSizePixels
-									* (emailRect.width / rectNativeWidth) / 1.3
-				}
+				isPassword: true
 			}
 
 			Text {
@@ -113,6 +75,7 @@ Item {
 				MouseArea {
 					id: forgotPasswordButton
 					anchors.fill: parent
+					cursorShape: Qt.PointingHandCursor
 				}
 			}
 
@@ -127,7 +90,7 @@ Item {
 
 /*##^##
 Designer {
-	D{i:0;autoSize:true;height:1080;width:1920}D{i:11;anchors_height:100;anchors_width:100}
+	D{i:0;autoSize:true;height:1080;width:1920}
 }
 ##^##*/
 

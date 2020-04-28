@@ -25,16 +25,17 @@ function postLogin(login, password) {
 			console.log("RECIEVE: Login response recieved.")
 
 			response = JSON.parse(xhr.responseText.toString())
+			console.log(JSON.stringify(response, null, 2))
 
 			// If login has failed
 			if (response.message === "Login or password are incorrect") {
-				console.log("RESULT: Login failed.")
+				console.log("RESULT: Login failed. Status: " + xhr.status)
 
 				/* TODO
 				  actions in the event of failed login
 				*/
 			} else {
-				console.log("RESULT: Login successful.")
+				console.log("RESULT: Login successful. Status: " + xhr.status)
 
 				accessToken = response.accessToken
 				userID = response.id

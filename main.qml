@@ -63,7 +63,7 @@ Window {
 
 				// Login proccess
 				signInButton.mouseArea.onClicked: {
-					Network.postLogin(emailTextEdit.text, passwordTextEdit.text)
+					Network.postLogin(email, password)
 				}
 			}
 		}
