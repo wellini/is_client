@@ -1,6 +1,8 @@
 import QtQuick 2.14
 import QtQuick.Layouts 1.14
 
+// This screen uses scaling instead of layouts
+// Column "column" contains UI and is getting scaled
 Item {
 	id: signInScreen
 
@@ -28,6 +30,7 @@ Item {
 
 		Column {
 			id: column
+			scale: (background.width / 1920 + background.height / 1080) / 2
 			spacing: 20
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.verticalCenter: parent.verticalCenter
