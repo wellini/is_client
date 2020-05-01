@@ -18,5 +18,7 @@
         <file>AboutScreenForm.ui.qml</file>
         <file>TextInputRectForm.ui.qml</file>
         <file>TextInputRect.qml</file>
+        <file>VerificationCodeScreen.qml</file>
+        <file>VerificationCodeScreenForm.ui.qml</file>
     </qresource>
 </RCC>

@@ -56,9 +56,10 @@ Window {
 		Component {
 			id: signIn
 			SignInScreen {
+				// Temporary "return" interaction
 				mouseArea.onClicked: {
-					swipeView.setCurrentIndex(0)
-					destructionTimer.start()
+					swipeView.decrementCurrentIndex()
+					destructionTimer.queueDestruction(1)
 				}
 
 				// Login proccess
@@ -72,9 +73,15 @@ Window {
 		Component {
 			id: signUp
 			SignUpScreen {
+				// Temporary "return" interaction
 				mouseArea.onClicked: {
-					swipeView.setCurrentIndex(0)
-					destructionTimer.start()
+					swipeView.decrementCurrentIndex()
+					destructionTimer.queueDestruction(1)
+				}
+
+				createButton.mouseArea.onClicked: {
+					swipeView.addItem(registrationVerificationCode.createObject(swipeView))
+					swipeView.incrementCurrentIndex()
 				}
 			}
 		}
@@ -83,35 +90,34 @@ Window {
 		Component {
 			id: about
 			AboutScreen {
+				// Temporary "return" interaction
 				mouseArea.onClicked: {
-					swipeView.setCurrentIndex(0)
-					destructionTimer.start()
+					swipeView.decrementCurrentIndex()
+					destructionTimer.queueDestruction(1)
+				}
+			}
+		}
+
+		// Registration verification code screen
+		Component {
+			id: registrationVerificationCode
+			VerificationCodeScreen {
+				flavourText: "Confirm registration"
+
+				confirmButton.mouseArea.onClicked: {
+					// Send confirmation code
+				}
+
+				// Temporary "return" interaction
+				mouseArea.onClicked: {
+					swipeView.decrementCurrentIndex()
+					destructionTimer.queueDestruction(2)
 				}
 			}
 		}
 
 		Keys.onEscapePressed: {
 			Qt.quit()
-		}
-
-		// Networking functions
-		function postLogin(login, password) {
-			// email validity check
-			if (!emailIsValid(login)) {
-				console.log("Invalid email!")
-				/* TODO
-				  alert the user to the invalidity of the email
-				*/
-				return
-			}
-
-			// if email is correct:
-			let response
-
-		}
-
-		function emailIsValid(email) {
-			return (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
 		}
 	}
 
@@ -124,8 +130,21 @@ Window {
 		repeat: false
 		triggeredOnStart: false
 
+		property int index: 1
+
 		onTriggered: {
-			swipeView.removeItem(swipeView.itemAt(1));
+			swipeView.removeItem(swipeView.itemAt(index));
+		}
+
+		function queueDestruction(num) {
+			index = num
+			destructionTimer.start()
 		}
 	}
 }
+
+/*##^##
+Designer {
+	D{i:0;autoSize:true;height:480;width:640}
+}
+##^##*/
