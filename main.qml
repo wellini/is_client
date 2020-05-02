@@ -64,7 +64,11 @@ Window {
 
 				// Login proccess
 				signInButton.mouseArea.onClicked: {
+					// Networking
 					Network.postLogin(email, password)
+
+					// GUI interaction
+					// TODO
 				}
 			}
 		}
@@ -80,6 +84,11 @@ Window {
 				}
 
 				createButton.mouseArea.onClicked: {
+					// Networking
+					Network.postRegistration(fullName, email, password)
+
+					// GUI interaction
+					// Open up the verification code screen
 					swipeView.addItem(registrationVerificationCode.createObject(swipeView))
 					swipeView.incrementCurrentIndex()
 				}
@@ -106,6 +115,7 @@ Window {
 
 				confirmButton.mouseArea.onClicked: {
 					// Send confirmation code
+					Network.postConfirmRegistration(code)
 				}
 
 				// Temporary "return" interaction
@@ -140,6 +150,10 @@ Window {
 			index = num
 			destructionTimer.start()
 		}
+	}
+
+	function testFunction() {
+		console.log("main.qml test function called.")
 	}
 }
 

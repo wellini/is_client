@@ -23,6 +23,7 @@ Rectangle {
 	property alias text: textInput.text
 	property alias rectWidth: rect.width
 	property alias rectHeight: rect.height
+	property alias horizontalAlignment: textInput.horizontalAlignment
 	// Readonly aliases
 	property alias taskKnightOrange: rect.taskKnightOrange
 	property alias width1080p: rect.width1080p
@@ -32,7 +33,7 @@ Rectangle {
 
 	TextInput {
 		id: textInput
-		text: "sample text"
+		text: "sampletext"
 		echoMode: rect.isPassword ? TextInput.Password : TextInput.Normal
 		font.bold: true
 		font.pointSize: rect.isPassword ? rect.fontPasswordPointSize1080p : rect.fontPointSize1080p

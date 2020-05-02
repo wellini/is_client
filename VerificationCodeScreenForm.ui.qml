@@ -10,11 +10,17 @@ Item {
 	property alias flavourText: header.text
 	property alias confirmButton: confirmButton
 	property alias mouseArea: mouseArea
+	property alias code: codeRect.text
 
 	Rectangle {
 		id: background
 		anchors.fill: parent
 		color: taskKnightOrange
+
+		MouseArea {
+			id: mouseArea
+			anchors.fill: parent
+		}
 
 		Text {
 			id: header
@@ -57,9 +63,10 @@ Item {
 				text: ""
 				Layout.fillHeight: true
 				Layout.fillWidth: true
-				Layout.maximumWidth: width1080p
+				Layout.maximumWidth: width1080p / 2
 				Layout.maximumHeight: height1080p
 				Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+				horizontalAlignment: TextInput.AlignHCenter
 			}
 
 			ButtonRect {
@@ -72,11 +79,6 @@ Item {
 				Layout.maximumWidth: width1080p
 			}
 		}
-
-  MouseArea {
-	  id: mouseArea
-	  anchors.fill: parent
-  }
 	}
 }
 
